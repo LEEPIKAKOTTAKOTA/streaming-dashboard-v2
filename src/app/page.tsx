@@ -1,5 +1,5 @@
-import HeroBanner from '@/components /HeroBanner'
-import MovieRow from '@/components /MovieRow'
+import HeroBanner from '@/components/HeroBanner'
+import MovieRow from '@/components/MovieRow'
 import { tmdbFetch } from '@/lib/tmdb'
 
 type Paginated<T> = {
