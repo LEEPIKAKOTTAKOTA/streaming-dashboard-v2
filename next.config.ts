@@ -1,14 +1,16 @@
-import type { NextConfig } from 'next'
+import path from 'path';
+import { defineConfig } from 'next';
 
-const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'image.tmdb.org' }
-    ]
+export default defineConfig({
+  experimental: {
+    turbopack: true,
+    outputFileTracingRoot: path.join(__dirname, 'src'),
+    turbopack: {
+      root: path.join(__dirname, 'src'),
+    },
   },
-  turbopack: {
-    root: '/Users/kottakotaleepika/streaming-dashboard-v2'
-  }
-}
-
-export default nextConfig
+  webpack(config) {
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    return config;
+  },
+});
