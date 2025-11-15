@@ -1,7 +1,6 @@
 import path from 'path';
-import { defineConfig } from 'next';
 
-export default defineConfig({
+const nextConfig = {
   experimental: {
     turbopack: true,
     outputFileTracingRoot: path.join(__dirname, 'src'),
@@ -13,4 +12,6 @@ export default defineConfig({
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
     return config;
   },
-});
+};
+
+export default nextConfig;
